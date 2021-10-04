@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design Project 3</title>
+</head>
+
+<style>
+    *{
+        padding: 0;
+        margin: 0; 
+    }
+
+    .navwrapper{
+        background-color: rgb(131, 131, 131);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 8vh;
+    }
+    .contentwrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 92vh;
+        padding: 10px;
+
+    }
+    .main{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    .side{
+        flex:1;
+    }
+
+    .navwrapper button{
+        cursor: pointer;
+        padding: 0px 20px 0px 20px;
+        text-decoration: none;
+        border: none;
+        background-color: rgba(238, 130, 238, 0);
+        font-size: larger;
+    }
+
+    .side{
+        object-fit: cover;
+        height: 92vh;
+        width: 400px;
+    }
+
+
+
+
+</style>
+
+
+<body>
+    
+    <wrapper>
+        <div class="navwrapper">
+            <button id="robot1" onclick="changeRobot(0)"> Robot 1</button>
+            <button id="robot2" onclick="changeRobot(1)"> Robot 2</button>
+            <button id="robot3" onclick="changeRobot(2)"> Robot 3</button>
+        </div>
+
+        <div class="contentwrapper">
+            <div class="main">
+                <h1>Stats</h1>
+                <span id="allstats">
+                    Choose Your Fighter Up Top
+                    </br>
+                </span>
+            </div>
+            <div class="side">
+                <img id="image" src="images/fee8f3a2-d8e2-4af4-b8ea-98d1f64311ff_1.f98d3c934e0c7ac0dc6ff1b4d4e3ccf9.jpeg">
+            </div>
+        </div>
+
+    </wrapper>
+
+
+    <script>
+
+        var fighterOne = {
+            name: "Carol",
+            size: "Large",
+            color: "grey",
+            dangerLevel: "high",
+            attack: function(Hammer){}
+        }
+
+        var fighterTwo = {
+            name: "Sam",
+            size: "Short",
+            color: "White",
+            dangerLevel: "high",
+            attack: function(sword) {}
+        }
+
+        var fighterThree = {
+            name: "Mark",
+            size: "Medium",
+            color: "Blue",
+            dangerLevel: "Medium",
+            attack: function(tackle){}
+        }
+
+        console.log(fighterOne,fighterTwo,fighterThree)
+
+        function changeRobot(item){
+            
+            let change = [Object.values(fighterOne), Object.values(fighterTwo), Object.values(fighterThree )];
+
+            switch(item){
+                case 0:
+                    document.getElementById('allstats').innerHTML = change[0];
+                    document.getElementById('image').src = "images/fee8f3a2-d8e2-4af4-b8ea-98d1f64311ff_1.f98d3c934e0c7ac0dc6ff1b4d4e3ccf9.jpeg";
+                    break;
+                case 1:
+                    //document.getElementById('allstats').innerHTML = Object.values(fighterTwo);
+                    document.getElementById('allstats').innerHTML = change[1];
+                    document.getElementById('image').src = "images/robot-toy-picture-id932299350.jpg";
+                    break;
+                case 2:
+                    //document.getElementById('allstats').innerHTML = Object.values(fighterThree);
+                    document.getElementById('allstats').innerHTML = change[2];
+                    document.getElementById('image').src = "images/rc-Robot-TT323-Action-Figure-Toy-remote-control-Electric-RC-Robots-child-learning-educational-robot-toys.jpg_Q90.jpg_.webp";
+                    break;
+            }
+        }
+
+  //Tester
+        function changeNow(){
+            document.getElementById('allstats').innerHTML = Object.values(fighterOne);
+            document.getElementById('image').src = "images/fee8f3a2-d8e2-4af4-b8ea-98d1f64311ff_1.f98d3c934e0c7ac0dc6ff1b4d4e3ccf9.jpeg";
+        }
+   
+
+
+    </script>
+
+</body>
+</html>
